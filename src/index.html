@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
-    
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -50,27 +49,99 @@
       bottom: 0;
       width: 100%;
     }
+    .destination-item {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #fff;
+    }
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .form-container input[type="text"],
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-container input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+    .form-container input[type="submit"]:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 <body>
-  <app-root></app-root>
   <header>
     <h1>MyTravel</h1>
   </header>
   <nav>
     <ul>
-      <li><a href="#">Accueil</a></li>
-      <li><a href="#">Destinations</a></li>
-      <li><a href="#">Forfaits</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#" onclick="showPage('accueil')">Accueil</a></li>
+      <li><a href="#" onclick="showPage('destinations')">Destinations</a></li>
+      <li><a href="#" onclick="showPage('forfaits')">Forfaits</a></li>
+      <li><a href="#" onclick="showPage('contact')">Contact</a></li>
     </ul>
   </nav>
-  <section>
+  <section id="accueil">
     <h2>Bienvenue sur MyTravel</h2>
     <p>Découvrez des destinations incroyables et trouvez le forfait parfait pour votre prochaine aventure.</p>
+  </section>
+  <section id="destinations" style="display:none;">
+    <h2>Destinations</h2>
+    <div class="destination-item">
+      <h3>Destination 1</h3>
+      <p>Description de la destination 1.</p>
+    </div>
+    <div class="destination-item">
+      <h3>Destination 2</h3>
+      <p>Description de la destination 2.</p>
+    </div>
+  </section>
+  <section id="forfaits" style="display:none;">
+    <h2>Forfaits</h2>
+    <p>Aucun forfait disponible pour le moment.</p>
+  </section>
+  <section id="contact" style="display:none;">
+    <h2>Contact</h2>
+    <div class="form-container">
+      <form>
+        <input type="text" placeholder="Nom">
+        <input type="text" placeholder="Email">
+        <textarea placeholder="Message"></textarea>
+        <input type="submit" value="Envoyer">
+      </form>
+    </div>
   </section>
   <footer>
     <p>&copy; 2024 MyTravel. Tous droits réservés.</p>
   </footer>
+
+  <script>
+    function showPage(pageId) {
+    
+      var sections = document.getElementsByTagName('section');
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = 'none';
+      }
+      
+      var page = document.getElementById(pageId);
+      if (page) {
+        page.style.display = 'block';
+      }
+    }
+  </script>
 </body>
 </html>
