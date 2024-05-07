@@ -9,3 +9,7 @@ const serverConfig: ApplicationConfig = {
 };
 
 export const config = mergeApplicationConfig(appConfig, serverConfig);
+export const ServerConfig = {
+  databaseUrl: 'mongodb://localhost:27017/mydatabase',
+  port: 3000
+};
